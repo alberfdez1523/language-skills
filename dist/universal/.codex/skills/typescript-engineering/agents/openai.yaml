@@ -1,0 +1,4 @@
+interface:
+  display_name: "TypeScript Engineering"
+  short_description: "Improve TypeScript typing, validation, tests, and structure"
+  default_prompt: "Use -engineering to build, refactor, or debug production-ready TypeScript code."

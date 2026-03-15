@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rust Engineering"
+  short_description: "Improve Rust safety, performance, testing, and maintainability"
+  default_prompt: "Use $rust-engineering to build, refactor, or debug production-ready Rust code."

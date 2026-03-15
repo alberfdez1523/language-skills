@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Language Skills by Alberto Fernández Palomo</title>
+    <meta
+      name="description"
+      content="Cross-agent language skills for Python, Java, Rust, C++, TypeScript, React, R, PHP, and Ruby, with install guides for popular coding agents."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Language Skills Catalog</p>
+          <h1>Engineering skills for serious coding agents.</h1>
+          <p class="hero-text">
+            A distribution-ready collection of language skills by
+            <strong>Alberto Fernández Palomo</strong> for Python, Java, Rust,
+            C++, TypeScript, React, R, PHP, and Ruby.
+          </p>
+          <div class="hero-actions">
+            <a href="#install" class="button button-primary">Install Guide</a>
+            <a href="#skills" class="button button-secondary">Browse Skills</a>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <div class="hero-panel-top">
+            <span>Cross-agent bundle</span>
+            <span>9 skills</span>
+          </div>
+          <div class="terminal-window">
+            <code id="heroCommand">npx skills add albertofernandezpalomo/language-skills</code>
+          </div>
+          <ul class="hero-stats">
+            <li>
+              <span class="stat-value">9</span>
+              <span class="stat-label">language packs</span>
+            </li>
+            <li>
+              <span class="stat-value">10</span>
+              <span class="stat-label">agent targets</span>
+            </li>
+            <li>
+              <span class="stat-value">0</span>
+              <span class="stat-label">build steps for the site</span>
+            </li>
+          </ul>
+        </div>
+      </header>
+
+      <main>
+        <section class="section manifesto">
+          <div class="section-heading">
+            <p class="eyebrow">What This Is</p>
+            <h2>One catalog. Multiple languages. Multiple agents.</h2>
+          </div>
+          <div class="manifesto-grid">
+            <article>
+              <h3>Each skill is real</h3>
+              <p>
+                Every package ships with a proper <code>SKILL.md</code>,
+                language-specific guidance, examples, and OpenAI agent metadata.
+              </p>
+            </article>
+            <article>
+              <h3>Prepared for distribution</h3>
+              <p>
+                The repo includes a bundle script and install instructions for
+                popular agent directories, so you can publish it as a catalog or
+                hand it over as a ZIP.
+              </p>
+            </article>
+            <article>
+              <h3>Author-first packaging</h3>
+              <p>
+                All skills are authored under Alberto Fernández Palomo and kept
+                consistent enough to evolve as a family instead of isolated docs.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="skills">
+          <div class="section-heading">
+            <p class="eyebrow">Skill Lineup</p>
+            <h2>Nine engineering packs, tuned for delivery work.</h2>
+          </div>
+          <div class="skills-grid" id="skillsGrid"></div>
+        </section>
+
+        <section class="section" id="install">
+          <div class="section-heading">
+            <p class="eyebrow">Install Configurator</p>
+            <h2>Generate the install command and the target path.</h2>
+          </div>
+          <div class="install-grid">
+            <div class="install-controls card">
+              <label class="field">
+                <span>GitHub repo slug</span>
+                <input
+                  id="repoSlug"
+                  type="text"
+                  value="albertofernandezpalomo/language-skills"
+                  spellcheck="false"
+                />
+              </label>
+              <label class="field">
+                <span>Skill</span>
+                <select id="skillSelect"></select>
+              </label>
+              <label class="field">
+                <span>Agent</span>
+                <select id="agentSelect"></select>
+              </label>
+              <div class="tag-row" id="agentTags"></div>
+            </div>
+            <div class="install-output card">
+              <div class="snippet-block">
+                <div class="snippet-head">
+                  <span>Agent Skills installer</span>
+                  <button class="copy-button" data-copy-target="npxCommand">Copy</button>
+                </div>
+                <pre id="npxCommand"></pre>
+              </div>
+              <div class="snippet-block">
+                <div class="snippet-head">
+                  <span>Local bundle command</span>
+                  <button class="copy-button" data-copy-target="bundleCommand">Copy</button>
+                </div>
+                <pre id="bundleCommand"></pre>
+              </div>
+              <div class="snippet-block">
+                <div class="snippet-head">
+                  <span>Manual destination path</span>
+                  <button class="copy-button" data-copy-target="manualPath">Copy</button>
+                </div>
+                <pre id="manualPath"></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-heading">
+            <p class="eyebrow">Install Flow</p>
+            <h2>Three steps to get a language skill running locally.</h2>
+          </div>
+          <div class="split-layout">
+            <article class="card">
+              <h3>1. Clone or download</h3>
+              <p>
+                Publish the repo to GitHub or ship it as a ZIP. The site can
+                point users to the repo slug, or they can copy a single skill
+                folder manually.
+              </p>
+            </article>
+            <article class="card">
+              <h3>2. Install for the agent</h3>
+              <p>
+                Use <code>npx skills add</code> when available, or copy the
+                skill into the directory shown in the compatibility matrix. For
+                prebuilt layouts, run the bundle script and use
+                <code>dist/universal</code>.
+              </p>
+            </article>
+            <article class="card">
+              <h3>3. Invoke by skill name</h3>
+              <p>
+                Restart the agent if needed and call the skill explicitly, for
+                example <code>$python-engineering</code> or
+                <code>$rust-engineering</code>.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-heading">
+            <p class="eyebrow">Compatibility</p>
+            <h2>Targeted at the directory layouts used by popular agents.</h2>
+          </div>
+          <div class="matrix card">
+            <div class="matrix-row matrix-header">
+              <span>Agent</span>
+              <span>Skill directory</span>
+              <span>Scope</span>
+            </div>
+            <div id="agentMatrix"></div>
+          </div>
+        </section>
+
+        <section class="section split-section">
+          <div class="section-heading">
+            <p class="eyebrow">Bundle Layout</p>
+            <h2>Publish the source repo or generate a universal bundle.</h2>
+          </div>
+          <div class="split-layout">
+            <article class="card">
+              <h3>Repo distribution</h3>
+              <p>
+                Publish the repository as-is and point users to the install
+                configurator. This is the lightest path if you want one canonical
+                source of truth.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Universal ZIP</h3>
+              <p>
+                Run the included PowerShell script to generate pre-copied
+                directories like <code>.codex/skills</code>,
+                <code>.claude/skills</code>, and <code>.cursor/skills</code> in
+                <code>dist/universal</code>.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Manual copy</h3>
+              <p>
+                Every skill is portable. Users can copy a single language folder
+                directly into their preferred agent path without touching the
+                others.
+              </p>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>Language Skills Catalog</p>
+        <p>Author: Alberto Fernández Palomo</p>
+      </footer>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

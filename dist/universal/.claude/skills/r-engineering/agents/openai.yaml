@@ -1,0 +1,4 @@
+interface:
+  display_name: "R Engineering"
+  short_description: "Improve R reproducibility, tests, data workflows, and structure"
+  default_prompt: "Use -engineering to build, refactor, or debug production-ready R code."

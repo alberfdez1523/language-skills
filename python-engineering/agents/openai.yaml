@@ -1,0 +1,4 @@
+interface:
+  display_name: "Python Engineering"
+  short_description: "Improve Python code quality, structure, tests, and debugging"
+  default_prompt: "Use $python-engineering to build, refactor, or debug production-ready Python code."

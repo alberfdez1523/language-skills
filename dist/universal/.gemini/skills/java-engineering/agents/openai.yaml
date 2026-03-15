@@ -1,0 +1,4 @@
+interface:
+  display_name: "Java Engineering"
+  short_description: "Improve Java architecture, testing, debugging, and delivery"
+  default_prompt: "Use $java-engineering to build, refactor, or debug production-ready Java code."

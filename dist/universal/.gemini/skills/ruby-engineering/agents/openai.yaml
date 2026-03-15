@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ruby Engineering"
+  short_description: "Improve Ruby design, Rails structure, tests, and delivery"
+  default_prompt: "Use -engineering to build, refactor, or debug production-ready Ruby code."

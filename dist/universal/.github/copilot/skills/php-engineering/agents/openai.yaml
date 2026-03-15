@@ -1,0 +1,4 @@
+interface:
+  display_name: "PHP Engineering"
+  short_description: "Improve modern PHP architecture, testing, security, and delivery"
+  default_prompt: "Use $php-engineering to build, refactor, or debug production-ready PHP code."

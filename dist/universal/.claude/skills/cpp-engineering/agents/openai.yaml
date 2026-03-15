@@ -1,0 +1,4 @@
+interface:
+  display_name: "C++ Engineering"
+  short_description: "Improve modern C++ safety, ownership, testing, and performance"
+  default_prompt: "Use $cpp-engineering to build, refactor, or debug production-ready C++ code."
