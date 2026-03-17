@@ -1,7 +1,7 @@
 "use client";
 
 import type { CSSProperties } from "react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { InstallLab } from "@/components/install-lab";
 import { agents, repoUrl, skills } from "@/lib/site-data";
@@ -306,8 +306,33 @@ const proofCases: Record<
   ],
 };
 
+function SunIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4" />
+      <line x1="12" y1="2" x2="12" y2="5" />
+      <line x1="12" y1="19" x2="12" y2="22" />
+      <line x1="4.22" y1="4.22" x2="6.34" y2="6.34" />
+      <line x1="17.66" y1="17.66" x2="19.78" y2="19.78" />
+      <line x1="2" y1="12" x2="5" y2="12" />
+      <line x1="19" y1="12" x2="22" y2="12" />
+      <line x1="4.22" y1="19.78" x2="6.34" y2="17.66" />
+      <line x1="17.66" y1="6.34" x2="19.78" y2="4.22" />
+    </svg>
+  );
+}
+
+function MoonIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+    </svg>
+  );
+}
+
 export default function HomePage() {
   const [locale, setLocale] = useState<Locale>("es");
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
   const t = copy[locale];
   const totals = useMemo(
     () => ({
@@ -317,13 +342,28 @@ export default function HomePage() {
     [],
   );
 
+  useEffect(() => {
+    const saved = localStorage.getItem("ls-theme") as "dark" | "light" | null;
+    if (saved === "light") {
+      setTheme("light");
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  }, []);
+
+  function toggleTheme() {
+    const next = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    document.documentElement.setAttribute("data-theme", next);
+    localStorage.setItem("ls-theme", next);
+  }
+
   return (
     <main className="site-shell">
       <div className="topbar" data-reveal>
         <div className="topbar-inner">
           <a className="topbar-brand" href="#top">
             <span className="topbar-brand-mark">
-              <img src="/logo-language-skills.svg" alt={t.brandAlt} width="40" height="40" />
+              <img src="/logo.png" alt={t.brandAlt} width="40" height="40" />
             </span>
             <span className="topbar-brand-text">
               <strong>{t.brand}</strong>
@@ -342,6 +382,14 @@ export default function HomePage() {
             </a>
             <button type="button" className="locale-switch" onClick={() => setLocale(locale === "es" ? "en" : "es")}>
               {t.localeButton}
+            </button>
+            <button
+              type="button"
+              className="theme-toggle"
+              onClick={toggleTheme}
+              aria-label={theme === "dark" ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
+            >
+              {theme === "dark" ? <SunIcon /> : <MoonIcon />}
             </button>
           </div>
         </div>
