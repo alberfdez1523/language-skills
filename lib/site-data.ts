@@ -27,6 +27,12 @@ export const repoSlug = "alberfdez1523/language-skills";
 export const repoUrl = `https://github.com/${repoSlug}`;
 export const repoZipUrl = `${repoUrl}/archive/refs/heads/main.zip`;
 
+function makeMonogramLogo(label: string, color: string) {
+  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"><text x="50%" y="52%" dominant-baseline="middle" text-anchor="middle" font-size="${label.length > 1 ? 24 : 30}" font-family="Arial, Helvetica, sans-serif" font-weight="700" letter-spacing="1" fill="${color}">${label}</text><path d="M16 50H48" stroke="${color}" stroke-width="3" stroke-linecap="round" opacity="0.7"/></svg>`,
+  )}`;
+}
+
 export const skills: Skill[] = [
   {
     id: "python-engineering",
@@ -41,7 +47,7 @@ export const skills: Skill[] = [
       es: ["Type hints y mantenibilidad", "FastAPI y automatización", "Tests, debugging y review"],
       en: ["Type hints and maintainability", "FastAPI and automation", "Tests, debugging, and review"],
     },
-    accent: "#7dd3fc",
+    accent: "#ffd43b",
   },
   {
     id: "java-engineering",
@@ -62,7 +68,7 @@ export const skills: Skill[] = [
     id: "rust-engineering",
     name: "Rust",
     slug: "rust-engineering",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Rust_programming_language_black_logo.svg",
     tagline: {
       es: "Para crates, CLIs, servicios async y trabajo sensible al rendimiento con ownership explícito.",
       en: "For crates, CLIs, async services, and performance-sensitive work with explicit ownership.",
@@ -71,7 +77,7 @@ export const skills: Skill[] = [
       es: ["Diseño consciente de ownership", "Errores guiados por Result", "Hábitos con Cargo test y clippy"],
       en: ["Ownership-aware design", "Result-driven error handling", "Cargo test and clippy habits"],
     },
-    accent: "#fdba74",
+    accent: "#f59e0b",
   },
   {
     id: "cpp-engineering",
@@ -101,7 +107,7 @@ export const skills: Skill[] = [
       es: ["Tipado estricto", "Validación en runtime", "Vitest y diseño modular"],
       en: ["Strict typing", "Runtime validation", "Vitest and module design"],
     },
-    accent: "#86efac",
+    accent: "#3178c6",
   },
   {
     id: "react-engineering",
@@ -170,10 +176,10 @@ export const agents: Agent[] = [
   { id: "claude", name: "Claude Code", logo: "https://impeccable.style/claude-logo-0p9b6824.png", path: "~/.claude/skills", scope: "global", tags: ["native", "cli"] },
   { id: "cursor", name: "Cursor", logo: "https://impeccable.style/cursor-logo-5jxhjn17.png", path: "~/.cursor/skills", scope: "global", tags: ["native", "ide"] },
   { id: "gemini", name: "Gemini CLI", logo: "https://impeccable.style/gemini-logo-1f6kvbwc.png", path: "~/.gemini/skills", scope: "global", tags: ["native", "cli"] },
-  { id: "cline", name: "Cline", logo: "https://www.google.com/s2/favicons?domain=cline.bot&sz=64", path: "~/.cline/skills", scope: "global", tags: ["compatible"] },
-  { id: "windsurf", name: "Windsurf", logo: "https://www.google.com/s2/favicons?domain=windsurf.com&sz=64", path: "~/.windsurf/skills", scope: "global", tags: ["compatible"] },
+  { id: "cline", name: "Cline", logo: makeMonogramLogo("CL", "#7dd3fc"), path: "~/.cline/skills", scope: "global", tags: ["compatible"] },
+  { id: "windsurf", name: "Windsurf", logo: makeMonogramLogo("WS", "#5eead4"), path: "~/.windsurf/skills", scope: "global", tags: ["compatible"] },
   { id: "opencode", name: "OpenCode", logo: "https://impeccable.style/opencode-logo-svpy0wcb.png", path: "~/.opencode/skills", scope: "global", tags: ["compatible"] },
   { id: "kiro", name: "Kiro", logo: "https://impeccable.style/kiro-logo-wk3s9bcy.png", path: "~/.kiro/skills", scope: "global", tags: ["compatible"] },
   { id: "copilot", name: "GitHub Copilot", logo: "https://impeccable.style/github-logo-tr9d8349.png", path: ".github/copilot/skills", scope: "repo-local", tags: ["workspace", "compatible"] },
-  { id: "agents", name: "Agents-Compatible", logo: "https://www.google.com/s2/favicons?domain=github.com&sz=64", path: ".agents/skills", scope: "repo-local", tags: ["workspace", "compatible"] },
+  { id: "agents", name: "Agents-Compatible", logo: makeMonogramLogo("AG", "#f8fafc"), path: ".agents/skills", scope: "repo-local", tags: ["workspace", "compatible"] },
 ];

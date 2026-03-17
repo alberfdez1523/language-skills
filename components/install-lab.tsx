@@ -62,6 +62,8 @@ export function InstallLab({ locale }: { locale: Locale }) {
       bundleTitle: "Comando para bundle",
       manualTitle: "Ruta manual",
       zipTitle: "ZIP manual",
+      terminalTitle: "Terminal de instalación",
+      terminalSubtitle: "Comandos listos para copiar",
     },
     en: {
       repo: "Repository",
@@ -73,6 +75,8 @@ export function InstallLab({ locale }: { locale: Locale }) {
       bundleTitle: "Bundle command",
       manualTitle: "Manual path",
       zipTitle: "Manual ZIP",
+      terminalTitle: "Install terminal",
+      terminalSubtitle: "Commands ready to copy",
     },
   }[locale];
 
@@ -151,6 +155,20 @@ export function InstallLab({ locale }: { locale: Locale }) {
       </div>
 
       <div className="install-output-wrap">
+        <div className="terminal-window-head">
+          <div className="terminal-lights" aria-hidden="true">
+            <span className="terminal-light light-close" />
+            <span className="terminal-light light-min" />
+            <span className="terminal-light light-max" />
+          </div>
+          <div className="terminal-window-meta">
+            <strong>{ui.terminalTitle}</strong>
+            <span>
+              {selectedSkill.name} x {selectedAgent.name} · {ui.terminalSubtitle}
+            </span>
+          </div>
+        </div>
+
         <Snippet
           title={ui.installTitle}
           value={npxCommand}
@@ -205,7 +223,7 @@ function Snippet({
   return (
     <div className="snippet">
       <div className="snippet-head">
-        <span>{title}</span>
+        <span className="snippet-title">{title}</span>
         <div className="snippet-actions">
           {href ? (
             <a className="copy-btn" href={href} target="_blank" rel="noopener noreferrer">
@@ -217,11 +235,33 @@ function Snippet({
             className={`copy-btn${copied ? " is-copied" : ""}`}
             onClick={onCopy}
           >
-            {copied ? labels.copied : labels.copy}
+            <span className="copy-icon" aria-hidden="true">
+              {copied ? <CheckIcon /> : <CopyIcon />}
+            </span>
+            <span>{copied ? labels.copied : labels.copy}</span>
           </button>
         </div>
       </div>
-      <pre>{value}</pre>
+      <pre>
+        <code>{value}</code>
+      </pre>
     </div>
+  );
+}
+
+function CopyIcon() {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5.5 3.5H3.5C2.95 3.5 2.5 3.95 2.5 4.5V12.5C2.5 13.05 2.95 13.5 3.5 13.5H9.5C10.05 13.5 10.5 13.05 10.5 12.5V10.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+      <path d="M6.5 8.5V3.5C6.5 2.95 6.95 2.5 7.5 2.5H12.5C13.05 2.5 13.5 2.95 13.5 3.5V8.5C13.5 9.05 13.05 9.5 12.5 9.5H7.5C6.95 9.5 6.5 9.05 6.5 8.5Z" stroke="currentColor" strokeWidth="1.2" />
+    </svg>
+  );
+}
+
+function CheckIcon() {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3.5 8.2L6.5 11.1L12.5 4.9" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
   );
 }
